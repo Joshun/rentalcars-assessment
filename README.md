@@ -16,7 +16,7 @@ The dependency of the Spark web microframework is bundled in addition to Gson
 **Both JAR files must be run from the _target_ working directory**
 
 ### API Information
-| Endpoint | Query parameters | Output |
-| --- | --- | --- |
-| /cars | sort_by, reverse | [sipp, name, price, supplier, rating] |
-| /cars/:car| sort_by, reverse | sipp, name, price, supplier, rating, score, summed_score, sipp_detail |
+| Method | Endpoint | Query parameters | Output |
+| --- | --- | --- | --- |
+| GET | /cars | sort_by, reverse | [sipp, name, price, supplier, rating] |
+| GET | /cars/:car| sort_by, reverse | sipp, name, price, supplier, rating, score, summed_score, sipp_detail |
