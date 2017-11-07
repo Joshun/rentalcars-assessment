@@ -107,20 +107,41 @@ public class CarParser {
 
         System.out.println();
         System.out.println("---Sorting by Price---");
+        System.out.println("CAR NAME - PRICE");
         for (Car c: cars) {
             System.out.println(c.getName() + " - " + + c.getPrice());
         }
 
-
-        // Sort cars by rating type and print out
-        carParser.sortCarsByRatingCarType(cars);
-
         System.out.println();
-        System.out.println("---Sorting by Rating and carparser.Car Type (Desc)---");
+        System.out.println("---SIPP specification---");
+        System.out.println("CAR NAME - SIPP - TYPE - DOOR TYPE - TRANSMISSION - FUEL - AIRCON");
         for (Car c: cars) {
             try {
                 Sipp sipp = new Sipp(c.getSippCode());
                 System.out.println(c.getName() + " - "
+                        + c.getSippCode() + " - "
+                        + sipp.toString());
+            }
+
+            catch (InvalidSippException e) {
+                System.err.println(e);
+            }
+        }
+
+
+
+        // Sort cars by rating type and print out
+        carParser.sortCarsByRatingCarType(cars);
+        Collections.reverse(cars);
+
+        System.out.println();
+        System.out.println("---Sorting by Rating and Car Type (Desc)---");
+        System.out.println("CAR NAME - SIPP - TYPE - SUPPLIER - RATING");
+        for (Car c: cars) {
+            try {
+                Sipp sipp = new Sipp(c.getSippCode());
+                System.out.println(c.getName() + " - "
+                        + c.getSippCode() + " - "
                         + sipp.getCarType() + " - " + c.getSupplier()
                         + " - " + " - " + c.getRating());
             }
@@ -136,6 +157,7 @@ public class CarParser {
 
         System.out.println();
         System.out.println("---Sorting by Sum of Scores---");
+        System.out.println("CAR NAME - SCORE - RATING - SUM OF SCORES");
         for (Car c: cars) {
             try {
                 System.out.println(c.getName() + " - " + c.getScore() + " - "

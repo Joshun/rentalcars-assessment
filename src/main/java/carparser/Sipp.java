@@ -28,6 +28,9 @@ public class Sipp {
         doorTypes.put("F", "SUV");
         doorTypes.put("P", "Pick up");
         doorTypes.put("V", "Passenger Van");
+
+        // X appears in doortype of some cars for some reason, but it isn't documented anywhere
+        doorTypes.put("X", "Other");
     }
 
     private String sippSpec;
@@ -79,6 +82,14 @@ public class Sipp {
 
         String carType = carTypes.get(carTypeCode);
         String doorType = doorTypes.get(doorTypeCode);
+
+        if (carType == null) {
+            throw new InvalidSippException("sipp cartype invalid", new Throwable(carTypeCode));
+        }
+
+        if (doorType == null) {
+            throw new InvalidSippException("sipp doortype invalid", new Throwable(transmissionTypeCode));
+        }
 
         if (transmissionTypeCode.equals("M")) {
             transmission = "Manual";
