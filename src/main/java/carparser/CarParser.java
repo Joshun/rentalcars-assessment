@@ -1,5 +1,7 @@
 package carparser;
 
+// CarParser: parses cars JSON file into car objects, when run displays them on console
+
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
@@ -19,7 +21,6 @@ public class CarParser {
             JsonCars jsonCars = gson.fromJson(reader, JsonCars.class);
 
             ArrayList<Car> cars = jsonCars.getVehicleList();
-
 
             return cars;
         }
@@ -119,7 +120,9 @@ public class CarParser {
         for (Car c: cars) {
             try {
                 Sipp sipp = new Sipp(c.getSippCode());
-                System.out.println(c.getName() + " - " + sipp.getCarType() + " - " + c.getSupplier() + " - " + " - " + c.getRating());
+                System.out.println(c.getName() + " - "
+                        + sipp.getCarType() + " - " + c.getSupplier()
+                        + " - " + " - " + c.getRating());
             }
 
             catch (InvalidSippException e) {
@@ -135,7 +138,8 @@ public class CarParser {
         System.out.println("---Sorting by Sum of Scores---");
         for (Car c: cars) {
             try {
-                System.out.println(c.getName() + " - " + c.getScore() + " - " + c.getRating() + " - " + c.getScoreSum());
+                System.out.println(c.getName() + " - " + c.getScore() + " - "
+                        + c.getRating() + " - " + c.getScoreSum());
             }
             catch (InvalidSippException e) {
                 System.err.println(e);

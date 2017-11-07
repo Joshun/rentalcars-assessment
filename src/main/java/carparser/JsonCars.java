@@ -1,5 +1,8 @@
 package carparser;
 
+// JsonCars: class for representing serialized JSON enabling it to be easily deserialized
+// by Gson library
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;

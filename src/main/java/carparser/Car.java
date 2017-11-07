@@ -1,5 +1,7 @@
 package carparser;
 
+// Car: represents an individual car object in a sensible format
+
 import com.google.gson.annotations.SerializedName;
 
 public class Car {
@@ -14,18 +16,10 @@ public class Car {
         return supplier;
     }
 
-    public void setSupplier(String supplier) {
-        this.supplier = supplier;
-    }
-
     private float rating;
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Car(String sippCode, String name, float price, String supplier, float rating) {
@@ -76,27 +70,9 @@ public class Car {
     }
 
     public String toString() {
-        return "carparser.Car [sippCode=" + sippCode + ", " + "name=" + name + "," + "price=" + price + ", "
-                + "supplier=" + supplier + ", " + "rating=" + rating + "]";
+        return "carparser.Car [sippCode=" + sippCode + ", " + "name=" + name + ","
+                + "price=" + price + ", " + "supplier=" + supplier + ", "
+                + "rating=" + rating + "]";
     }
 
-
-
-//    public int compareTo(carparser.Car car) {
-////        if (! (o instanceof carparser.Car)) {
-////            return 0;
-////        }
-////        else {
-////            carparser.Car c = (carparser.Car)o;
-//            if (this.getPrice() > car.getPrice()) {
-//                return 1;
-//            }
-//            else if (this.getPrice() < car.getPrice()) {
-//                return -1;
-//            }
-//            else {
-//                return 0;
-//            }
-////        }
-//    }
 }

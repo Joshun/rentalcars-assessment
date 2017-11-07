@@ -1,5 +1,7 @@
 package carparser;
 
+// Sipp: parse Sipp codes into separate values
+
 import java.util.HashMap;
 
 
@@ -34,48 +36,24 @@ public class Sipp {
         return sippSpec;
     }
 
-    public void setSippSpec(String sippSpec) {
-        this.sippSpec = sippSpec;
-    }
-
     public String getCarType() {
         return carType;
-    }
-
-    public void setCarType(String carType) {
-        this.carType = carType;
     }
 
     public String getDoorType() {
         return doorType;
     }
 
-    public void setDoorType(String doorType) {
-        this.doorType = doorType;
-    }
-
     public String getTransmission() {
         return transmission;
-    }
-
-    public void setTransmission(String transmission) {
-        this.transmission = transmission;
     }
 
     public String getFuel() {
         return fuel;
     }
 
-    public void setFuel(String fuel) {
-        this.fuel = fuel;
-    }
-
     public String getAircon() {
         return aircon;
-    }
-
-    public void setAircon(String aircon) {
-        this.aircon = aircon;
     }
 
     private String carType;
@@ -89,7 +67,7 @@ public class Sipp {
 
     public Sipp(String sippSpec) throws InvalidSippException {
         if (sippSpec.length() != 4) {
-            throw new InvalidSippException();
+            throw new InvalidSippException("sipp length invalid", new Throwable(sippSpec));
         }
 
         this.sippSpec = sippSpec;
@@ -109,7 +87,8 @@ public class Sipp {
             transmission = "Automatic";
         }
         else {
-            throw new InvalidSippException();
+            throw new InvalidSippException("sipp transmission invalid",
+                    new Throwable(transmissionTypeCode));
         }
 
         if (fuelAirconCode.equals("N")) {
@@ -121,7 +100,8 @@ public class Sipp {
             aircon = "A/C";
         }
         else {
-            throw new InvalidSippException();
+            throw new InvalidSippException("sipp fuel aircon invalid",
+                    new Throwable(fuelAirconCode));
         }
 
         this.carType = carType;
