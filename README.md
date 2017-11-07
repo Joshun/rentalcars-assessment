@@ -12,3 +12,5 @@ Pre-built jar is in target/RentalcarsAssessment2.jar
 The _carapi_ package contains the code for the REST api and it makes use of the code in the carparser package from the earlier part.
 
 The dependency of the Spark web microframework is bundled in addition to Gson
+
+**Both JAR files must be run from the _target_ working directory**
