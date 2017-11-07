@@ -18,5 +18,5 @@ The dependency of the Spark web microframework is bundled in addition to Gson
 ### API Information
 | Method | Endpoint | Query parameters | Output |
 | --- | --- | --- | --- |
-| GET | /cars | sort_by, reverse | [sipp, name, price, supplier, rating] |
-| GET | /cars/:car| sort_by, reverse | sipp, name, price, supplier, rating, score, summed_score, sipp_detail |
+| GET | /cars | sort_type, reverse | [sipp, name, price, supplier, rating] |
+| GET | /cars/:car| sort_type, reverse | sipp, name, price, supplier, rating, score, summed_score, sipp_detail |
